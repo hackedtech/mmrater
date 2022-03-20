@@ -1,0 +1,138 @@
+/*index.css*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*font-family: 'Open Sans', sans-serif;*/
+/*font-family: 'Roboto', sans-serif;*/
+body {
+  margin: 0;
+  padding: 0;
+  background: white;
+  font-family: 'Open Sans', sans-serif;
+  overflow: auto;
+}
+.adm_head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 20px;
+  background: #000000;
+  box-shadow: 0px 0px 10px #000000;
+  border: 5px solid #ffb400;
+  border-left: none;
+  border-top: none;
+  z-index: 1;
+}
+.adm_head h2 {
+  font-family: Sans-Serif;
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 24px;
+}
+.adm_head #up_btn {
+  margin: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  height: 100%;
+  font-size: 24px;
+  font-weight: 900;
+}
+  .widget-info{
+  margin: 80px auto;
+}
+.widget-info article {
+  background: #151617;
+  color: #ffffff;
+  box-shadow: 0px 0px 10px #000000;
+}
+.widget-info .w3-code {
+  color: red;
+  cursor: pointer;
+}
+.widget-info table {
+  color: #ffffff;
+}
+.adminArea .w3-modal-content {
+  border: 2px solid red;
+}
+.adminArea #form {
+  margin: 10px 0px auto;
+  padding: 10px;
+}
+.adminArea #codeForm button {
+  margin: 5px 0px;
+}
+.adminArea .topic_widget h2 {
+  font-family: Sans-Serif;
+  color: white;
+  font-weight: 900;
+  font-size: 24px;
+}
+#footer {
+  width: 100%;
+}
+.copycode {
+  margin-bottom: 10px;
+}
+#mm_rating_widget {
+  display: none;
+  min-width: 360px;
+  width: 100%;
+}
+.mainRater .myscheme {
+  background: #d82e3f;
+  color: #ffffff;
+  height: 110px;
+}
+.mainRater .top_hed h3:nth-child(1) {
+  float: left;
+  padding: 5.25px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: 0.4s ease;
+}
+.mainRater .top_hed h3:nth-child(2) {
+  float: right;
+  padding: 5.25px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: 0.4s ease;
+}
+.mainRater .ratingMeter {
+  width: 0%;
+  height: 24px;
+  background: none;
+  /* #ffb400*/
+  color: #ffffff;
+  border-radius: 50px;
+  transition: 0.4s ease;
+}
+.mainRater .ratingMeter #percentage_calc {
+  font-family: 'Roboto', sans-serif;
+}
+.mainRater #avgrater {
+  background: #d82e3f;
+  color: #ffffff;
+  height: 150px;
+}
+.mainRater #avgrater h1,span {
+  font-family: 'Roboto', sans-serif;
+}
+.mainRater table td {
+  font-weight: bold;
+}
+#average_numerical {
+  margin: 10px 0px;
+  color: #ffffff;
+}
+@media all and (min-width: 360px) and (max-width: 680px) {
+  .separatormm {
+    display: flex;
+    justify-content: center;
+  }
+  #mm_rating_widget {
+    width: auto;
+  }
+}

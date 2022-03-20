@@ -1,0 +1,269 @@
+<!--
+   possitioning classes
+   .w3-display-container
+   .w3-center
+   .w3-display-topleft,topright,bottomleft,bottomright,left,right,middle,topmiddle,bottommiddle,w3-mobile
+ -->
+<!--
+    colorScheme
+    BlueDark->#3581d8
+    BlueLight->#63cad8
+    Red->#d82e3f
+    Green->#ffe135
+    YellowDark->#ffe135
+    YellowLight->#fff44f
+ -->
+<!--
+  -->
+<!doctype html>
+<html>
+<head>
+  <title>mmRating Widget</title>
+  <link rel="stylesheet" href="lib/index.css" />
+  <link rel="stylesheet" href="lib/F4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="lib/w3.min.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="mobileoptimized" content="240" />
+</head>
+<body>
+  <!-- containers -->
+  <div class="adminArea w3-container">
+    <div class="w3-modal" id="gen_modal">
+      <div class="w3-modal-content w3-animate-top">
+        <div class="w3-container topic_widget w3-red">
+          <h2>Widget Generator</h2>
+        </div>
+        <div class="w3-container" id="form">
+          <form class="w3-container" id="codeForm">
+            <label class="w3-tag w3-red">Story Rating</label><br>
+            <input class="w3-input w3-border" type="number" id="storyInput" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="4" min="0" max="5" placeholder="Story*" required="required" /><br>
+            <label class="w3-tag w3-red">Screenplay Rating</label><br>
+            <input class="w3-input w3-border" type="number" id="scrInput" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="4" min="0" max="5" placeholder="Screenplay*" required="required" />
+            <br>
+            <label class="w3-tag w3-red">Directiom Rating</label><br>
+            <input type="number" class="w3-input w3-border" id="dirInpur" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="4" min="0" max="5" placeholder="Direction*" required="required" /><br>
+            <label class="w3-tag w3-red">Performance</label><br>
+            <input type="number" class="w3-input w3-border" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" placeholder="Performance*" maxlength="4" min="0" max="5" id="perfInput" required="required" />
+            <br>
+            <label class="w3-tag w3-pale-yellow">DataTypeOne</label><br>
+            <input class="w3-input w3-border" id="dOne" placeholder="Optional*" value="STORY" type="text"><br>
+            <label class="w3-tag w3-pale-yellow">DataTypeTwo</label><br>
+            <input class="w3-input w3-border" id="dTwo" placeholder="Optional*" value="SCREENPLAY" type="text"><br>
+            <label class="w3-tag w3-pale-yellow">DataTypeThree</label><br>
+            <input class="w3-input w3-border" id="dthree" placeholder="Optional*" value="DIRECTION" type="text"><br>
+            <label class="w3-tag w3-pale-yellow">DataTypeFour</label><br>
+            <input class="w3-input w3-border" id="dFour" placeholder="Optional*" value="PERFORMANCE" type="text"><br>
+            <label class="w3-tag w3-red">Execute()</label><br>
+            <input id="execInput" value="true" type="text" disabled="disabled" class="w3-input w3-border" />
+            <button onclick="createCode()" class="w3-button w3-green">Generate</button>
+            <button type="button" onclick="document.getElementById('gen_modal').style.display='none'" class="w3-button w3-red">cancel</button>
+          </form>
+          <div class="w3-container copycode">
+            <div class="w3-panel w3-green w3-animate-opacity" id="alertCopy" style="display: none;">
+              <p>
+                Code Copied to clipboard successfully! :)
+              </p>
+            </div>
+            <br>
+            <button type="button" class="w3-button w3-black" onclick="copycode()">Copy</button>
+            <br>
+            <textarea id="copycode" class="w3-border w3-yellow w3-pale-yellow w3-input" cols="5" rows="10" readonly="readonly" placeholder="Your Code Will Appear Here..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w3-container adm_head">
+      <button id="up_btn" onclick="document.getElementById('gen_modal').style.display='block'" class="w3-display-left w3-red">
+        <i class="fa fa-building"></i>
+        </button>
+      <h2 class="w3-center">
+        <i>AdminConsole</i>
+      </h2>
+    </div>
+    <div class="w3-container  widget-info">
+      <article class="w3-container w3-panel w3-card">
+        <label class="w3-tag w3-purple">mmRatingAPI v1.1</label>
+        <p>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <td>BaseName:</td>
+              <td>mmRating API</td>
+            </tr>
+            <tr>
+              <td>FullName:</td>
+              <td>MessOrMarvellous Rating API</td>
+            </tr>
+            <tr>
+              <td>Initial Use:</td>
+              <td>As Movie Rating Widget</td>
+            </tr>
+            <tr>
+              <td>version:</td>
+              <td>v1.1</td>
+            </tr>
+            <tr>
+              <td>Developer:</td>
+              <td>Tausif Alam</td>
+            </tr>
+            <tr>
+              <td>Rating Criteria b/w:</td>
+              <td>0-5 numbers</td>
+            </tr>
+            <tr>
+              <td>syntax:</td>
+              <td>mmRating( )</td>
+            </tr>
+          </table>
+        </p>
+      </article>
+      <article class="w3-container w3-panel w3-card">
+        <label class="w3-tag w3-red">*Dependencies:</label><br><br>
+        <label class="w3-tag w3-green">W3.css</label>
+        <div class="w3-code">
+          https://cdnjs.cloudflare.com/ajax/libs/w3-css/4.1.0/w3.min.css
+        </div>
+        <br>
+        <label class="w3-tag w3-blue">font-awesome</label>
+        <div class="w3-code">
+          https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+        </div>
+        <br>
+        <label class="w3-tag w3-red">OpenSans</label>
+        <div class="w3-code">
+          https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap
+        </div>
+        <br>
+        <label class="w3-tag w3-yellow">Roboto</label>
+        <div class="w3-code">
+          https://fonts.googleapis.com/css2?family=Roboto&display=swap
+        </div>
+      </article>
+      <article class="w3-container w3-panel w3-card">
+        <label class="w3-tag w3-blue">Initialization From JS</label>
+        <div class="w3-code jsHigh notranslate">
+          //Initialize Widget Straight from Js
+          i.e <br><br>
+          mmRating(exec,story,screenplay,direction,performance,dataone,datatwo,datathree,datafour);<br><br>
+          exec =>  boolean // true/false<br>
+          story => number // 0-5<br>
+          screenplay => number // 0-5<br>
+          direction => number // 0-5<br>
+          performance => number // 0-5<br>
+          dataone(optional) => string // "example"<br>
+          datatwo(optional) => string // "example"<br>
+          datathree(optional) => string // "example"<br>
+          datafour(optional) => string // "optional"
+        </div>
+      </article>
+    </div>
+    <div class="w3-container w3-center startBtn">
+      <button onclick="document.getElementById('gen_modal').style.display='block'" class="w3-button w3-red">Create Your Widget</button>
+    </div>
+    <hr>
+    <div class="w3-center w3-container">
+      <label class="w3-tag w3-pale-yellow w3-border" style="margin:10px;">Example Preview:-</label>
+    </div>
+    <div class="separatormm">
+      <div id="mm_rating_widget">
+        <div class="w3-container mainRater">
+          <div class="w3-container w3-center myscheme">
+            <div class="w3-container top_hed">
+              <!-- control-1 -->
+              <section>
+                <h3 id="IsMess">Mess</h3>
+                <h3 id="IsMarvelous">Marvellous</h3>
+              </section>
+              <br><br><br>
+              <section>
+                <div id="ratingMeter" style="background: #ffffff;border-radius: 50px;" class="w3-center">
+                  <!-- control-2 -->
+                  <div class="ratingMeter w3-center w3-display-container">
+                    <span id="percentage_calc" class="w3-display-middle"></span>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div class="w3-container">
+            <!-- control-3 -->
+            <table class="w3-table w3-bordered">
+              <tr>
+                <td id="dataOne">STORY</td>
+                <td id="data_rating_story" class="w3-right-align">
+                  <!-- stars -->
+                  <span id="story_stars" class="stars"></span>
+                  <span id="numerical-rating-story"></span>
+                </td>
+              </tr>
+              <tr>
+                <td id="dataTwo">SCREENPLAY</td>
+                <td id="data_rating_screenplay" class="w3-right-align">
+                  <!-- stars -->
+
+
+
+                  <span id="story_screenplay" class="stars"></span>
+                  <span id="numerical-rating-screenplay"></span>
+                </td>
+              </tr>
+              <tr>
+                <td id="dataThree">DIRECTION</td>
+                <td id="data_rating_direction" class="w3-right-align">
+
+
+
+
+                  <span id="story_direction" class="stars"></span>
+                  <span id="numerical-rating-direction"></span>
+                </td>
+              </tr>
+              <tr>
+                <td id="dataFour">PERFORMANCE</td>
+                <td id="data_rating_performance" class="w3-right-align">
+                  <!-- stars -->
+
+
+
+                  <span id="story_performance" class="stars"></span>
+                  <span id="numerical-rating-performance"></span>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="w3-container w3-center" id="avgrater">
+            <h1 id="average_numerical"></h1>
+            <!-- stars -->
+
+
+
+            <span id="story_avgCriteria" class="stars"></span>
+            <br />
+            <span>AVERAGE RATING</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="w3-container w3-center mainTags">
+      <label class="w3-tag w3-red">mmRatingAPI</label>
+      <label class="w3-tag w3-blue w3-right-align">v1.1</label>
+      <label class="w3-tag w3-green">W3.css</label>
+    </div>
+    <div id="footer" class="w3-panel w3-pale-yellow w3-border w3-yellow">
+      <p class="w3-center">
+        <script type="text/javascript">
+          const date = new Date();
+          document.write("&#169;"+date.getFullYear()+" krunchline technologies")
+        </script>
+      </p>
+    </div>
+  </div>
+  <script type="text/javascript" src="lib/mmRatingAPI.js"></script>
+  <script type="text/javascript" src="lib/cdr.js"></script>
+  <script src="https://www.w3schools.com/lib/w3codecolor.js"></script>
+  <script type="text/javascript">
+    mmRating(true, 5, 5, 5, 5);
+  </script>
+</body>
+</html>
